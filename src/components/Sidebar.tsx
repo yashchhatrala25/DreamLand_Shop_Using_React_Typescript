@@ -27,7 +27,8 @@ const Sidebar = () => {
         const uniqueCategories = Array.from(
           new Set(data.products.map((product) => product.category))
         );
-        console.log(uniqueCategories);
+        setCategories(uniqueCategories);
+        // console.log(uniqueCategories);
       } catch (error) {
         console.error("Error fetching product", error);
       }
@@ -39,6 +40,42 @@ const Sidebar = () => {
   return (
     <div className="w-64 p-5 h-screen">
       <h1 className="text-2xl font-bold mb-10 mt-4">DreamLand Shop</h1>
+      <section>
+        <input
+          type="text"
+          className="border-2 rounded px-2 sm:mb-0"
+          placeholder="Search Product"
+        />
+
+        <div className="flex justify-center items-center">
+          <input
+            type="text"
+            className="border-2 mr-2 px-5 py-3 mb-3 w-full"
+            placeholder="Min"
+          />
+          <input
+            type="text"
+            className="border-2 mr-2 px-5 py-3 mb-3 w-full"
+            placeholder="Max"
+          />
+        </div>
+
+        {/* Categories Section */}
+        <div className="mb-5">
+          <h2 className="text-xl font-semibold mb-3">Categories</h2>
+        </div>
+        {categories.map((category, index) => (
+          <label key={index} className="block mb-2">
+            <input
+              type="radio"
+              name="category"
+              value={category}
+              className="mb-2 w-[16px] h-[16px]"
+            />
+            {category.toUpperCase()}
+          </label>
+        ))}
+      </section>
     </div>
   );
 };
