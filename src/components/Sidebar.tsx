@@ -76,18 +76,18 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-64 p-5 h-screen">
+    <div className="w-[20%] p-5 h-screen">
       <h1 className="text-2xl font-bold mb-10 mt-4">DreamLand Shop</h1>
       <section>
         <input
           type="text"
-          className="border-2 rounded px-2 sm:mb-0"
+          className="border-2 rounded px-2 py-3 w-full sm:mb-0"
           placeholder="Search Product"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center mt-3 items-center">
           <input
             type="text"
             className="border-2 mr-2 px-5 py-3 mb-3 w-full"
@@ -110,13 +110,13 @@ const Sidebar = () => {
         </div>
         <section>
           {categories.map((category, index) => (
-            <label key={index} className="block mb-2">
+            <label key={index} className="block mb-2 cursor-pointer">
               <input
                 type="radio"
                 name="category"
                 value={category}
                 onChange={() => handleRadioChangeCategories(category)}
-                className="mb-2 w-[16px] h-[16px]"
+                className="mb-2 w-[16px] h-[16px] mr-2"
                 checked={selectedCategory === category}
               />
               {category.toUpperCase()}
@@ -132,7 +132,7 @@ const Sidebar = () => {
                 <button
                   key={index}
                   onClick={() => handleKeywordClicked(keyword)}
-                  className="block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200"
+                  className="block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200 cursor-pointer"
                 >
                   {keyword.toUpperCase()}
                 </button>
@@ -143,7 +143,7 @@ const Sidebar = () => {
 
         <button
           onClick={handleResetFilters}
-          className="w-full mb-[4rem] py-2 bg-black text-white rounded mt-5"
+          className="w-full mb-[4rem] py-2 bg-black text-white rounded mt-5 cursor-pointer"
         >
           Reset Filters
         </button>
